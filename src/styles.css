@@ -1,1 +1,74 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  box-sizing: border-box;
+  color: black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body{
+  margin:0;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+}
+
+/*text*/
+
+/*hyperlink*/
+
+a{
+  cursor: pointer;
+  color: #1976d2;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/*Components*/
+
+app-top-bar {
+  width: 100%;
+  height: 60px;
+  color: #ffffff;
+  background-color: #444544;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+app-homepage{
+  width: 100%;
+  height: 100%;
+  background-color: antiquewhite;
+}
+
+/*buttons*/
+
+.button, button{
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 2%;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+}
+
+.button:hover, button:hover {
+  opacity: 0.8;
+  font-weight: normal;
+}
+
+app-top-bar h1 {
+  color: #ffffff;
+  margin:0;
+}
