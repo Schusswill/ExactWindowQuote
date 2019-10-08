@@ -1,0 +1,23 @@
+<h2>Add another window</h2>
+<form [formGroup]="windowForm" (ngSubmit)="submit(windowForm.value)">
+  <div class="form-group">
+    <ul>
+      <li>
+        <label class="center-block">Type:
+          <input class="form-control" formControlName="type">
+        </label>
+      </li>
+      <li>
+        <label class="center-block">hight:
+          <input class="form-control" formControlName="hight">
+        </label>
+      </li>
+      <li>
+        <label class="center-block">width:
+          <input class="form-control" formControlName="width">
+        </label>
+      </li>
+    </ul>
+  </div>
+  <button class="button" type="submit">Add Window</button>
+</form>

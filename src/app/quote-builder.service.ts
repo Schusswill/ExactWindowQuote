@@ -6,17 +6,16 @@ import { Injectable } from '@angular/core';
 export class QuoteBuilderService {
 
 constructor() { }
-  windows = [];
-
-  addWindowToQuote(product) {
+  static windows = [];
+  static addWindowToQuote(product: Window) {
     this.windows.push(product);
   }
 
-  getWindows() {
+  static getWindows() {
     return this.windows;
   }
 
-  clearQuote() {
+  static clearQuote() {
     this.windows = [];
     return this.windows;
   }

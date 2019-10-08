@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 
 import { QuoteBuilderService } from '../quote-builder.service';
 
@@ -9,23 +8,16 @@ import { QuoteBuilderService } from '../quote-builder.service';
   styleUrls: ['./quote-builder.component.css']
 })
 export class QuoteBuilderComponent implements OnInit {
-  windows = [];
-  quoteForm;
+  windows;
+  selected;
 
   constructor(
     private quoteBuilderService: QuoteBuilderService,
-    private formBuilder: FormBuilder,
   ) {
-    this.windows = quoteBuilderService.getWindows();
-    this.quoteForm = this.formBuilder.group({
-      email: 'example@email.com',
-      zipcode: ''
-    });
   }
 
-  onSubmit(customerData) {
-    console.warn('Your form has been submited', customerData);
-  }
+
+
 
   ngOnInit() {
   }

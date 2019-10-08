@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { QuoteBuilderComponent } from './quote-builder/quote-builder.component';
+import { WindowFormComponent } from './window-form/window-form.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       TopBarComponent,
       HomepageComponent,
-      QuoteBuilderComponent
+      QuoteBuilderComponent,
+      WindowFormComponent
    ],
    imports: [
       BrowserModule,
