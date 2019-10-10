@@ -1,3 +1,8 @@
 <div id="addWindow">
-  <app-window-form></app-window-form>
+  <div *ngFor='let window of windows'>
+    {{ window.type }}
+    {{ window.hight }}
+    {{ window.width }}
+  </div>
+  <a routerLink="/window-form" class="button">add a window</a>
 </div>

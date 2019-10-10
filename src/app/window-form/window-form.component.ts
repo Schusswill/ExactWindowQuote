@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { QuoteBuilderService } from '../quote-builder.service';
+import { RouterLink, Router } from '@angular/router';
 
 @Component({
   selector: 'app-window-form',
@@ -10,7 +11,9 @@ import { QuoteBuilderService } from '../quote-builder.service';
 })
 export class WindowFormComponent implements OnInit {
 
-  constructor(private service: QuoteBuilderService) { }
+  constructor(
+    private service: QuoteBuilderService,
+    private router: Router) { }
   windowForm = new FormGroup ({
     type: new FormControl(),
     hight: new FormControl(),
@@ -19,6 +22,7 @@ export class WindowFormComponent implements OnInit {
 
   submit(product: Window) {
     QuoteBuilderService.addWindowToQuote(product);
+    this.router.navigate(['/quote-builder']);
   }
 
   ngOnInit() {

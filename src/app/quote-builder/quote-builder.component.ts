@@ -11,9 +11,8 @@ export class QuoteBuilderComponent implements OnInit {
   windows;
   selected;
 
-  constructor(
-    private quoteBuilderService: QuoteBuilderService,
-  ) {
+  constructor( ) {
+    this.windows = QuoteBuilderService.getWindows();
   }
 
 

@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { QuoteBuilderComponent } from './quote-builder/quote-builder.component';
+import { WindowFormComponent } from './window-form/window-form.component';
 
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'quote-builder', component: QuoteBuilderComponent},
+  {path: 'window-form', component: WindowFormComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
