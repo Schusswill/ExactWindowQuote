@@ -5,4 +5,18 @@
     {{ window.width }}
   </div>
   <a routerLink="/window-form" class="button">add a window</a>
+  <div>
+      <form [formGroup]="quoteForm" (ngSubmit)="submit()">
+        <div class="form-group">
+          <label class="center-block">Email:
+            <input class="form-control" formControlName="email">
+          </label>
+          <label class="center-block">Zipcode:
+            <input class="form-control" formControlName="zipcode">
+          </label>
+        </div>
+        <button class="button" type="submit">submit to get a quote</button>
+      </form>
+    </div>
 </div>
+

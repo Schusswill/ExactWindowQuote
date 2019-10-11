@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { QuoteBuilderService } from '../quote-builder.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-quote-builder',
@@ -14,7 +15,13 @@ export class QuoteBuilderComponent implements OnInit {
   constructor( ) {
     this.windows = QuoteBuilderService.getWindows();
   }
-
+  quoteForm = new FormGroup({
+    email: new FormControl(),
+    zipcode: new FormControl()
+  });
+  submit() {
+    return null;
+  }
 
 
 

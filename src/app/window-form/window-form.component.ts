@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { RouterLink, Router } from '@angular/router';
 
 import { QuoteBuilderService } from '../quote-builder.service';
-import { RouterLink, Router } from '@angular/router';
+import { windowTypes } from '../window-examples';
+
 
 @Component({
   selector: 'app-window-form',
@@ -11,9 +13,11 @@ import { RouterLink, Router } from '@angular/router';
 })
 export class WindowFormComponent implements OnInit {
 
+  windowTypes = windowTypes;
   constructor(
     private service: QuoteBuilderService,
     private router: Router) { }
+
   windowForm = new FormGroup ({
     type: new FormControl(),
     hight: new FormControl(),
