@@ -11,10 +11,7 @@ body{
   margin:0;
 }
 
-.container{
-  display: flex;
-  flex-direction: row;
-}
+
 
 /*text*/
 
@@ -48,6 +45,12 @@ app-homepage{
   width: 100%;
   height: 100%;
   background-color: antiquewhite;
+}
+
+window-form{
+  width: 100%;
+  height: auto;
+  column-count: 3;
 }
 
 /*buttons*/

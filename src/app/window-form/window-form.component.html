@@ -1,21 +1,11 @@
+<h1>Select you window type</h1>
+      <section id="photos" *ngFor="let windowType of windowTypes">
+        <div>
+        <img [src]=windowType.imgUrl [alt]="'picture of ' + windowType.type + ' window'">
+        </div>
+      </section>
 <form [formGroup]="windowForm" (ngSubmit)="submit(windowForm.value)">
   <div class="form-group">
-    <div class="type-select" *ngFor="let windowType of windowTypes">
-      <div class="row">
-        <div class="column" *ngIf="windowType.id%4 == 0">
-          <img [src]="windowType.imgUrl" [alt]="'picture of' + windowType.type">
-        </div>
-        <div class="column" *ngIf="windowType.id%4 == 1">
-          <img [src]="windowType.imgUrl" [alt]="'picture of' + windowType.type">
-        </div>
-        <div class="column" *ngIf="windowType.id%4 == 2">
-            <img [src]="windowType.imgUrl" [alt]="'picture of' + windowType.type">
-        </div>
-        <div class="column" *ngIf="windowType.id%4 == 3">
-            <img [src]="windowType.imgUrl" [alt]="'picture of' + windowType.type">
-        </div>
-      </div>
-    </div>
     <ul>
       <li>
         <label class="center-block">Type:

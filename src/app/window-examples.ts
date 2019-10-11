@@ -10,5 +10,17 @@ export const windowTypes = [
     type: 'sliding glass',
     imgUrl: 'https://image.shutterstock.com/z/' +
     'stock-vector-double-hung-window-vector-isolated-traditional-english-or-american-lifting-slider-window-398326996.jpg'
+  },
+  {
+    id: 2,
+    type: 'test1',
+    imgUrl: 'https://image.shutterstock.com/z/' +
+    'stock-vector-double-hung-window-vector-isolated-traditional-english-or-american-lifting-slider-window-398326996.jpg'
+  },
+  {
+    id: 3,
+    type: 'test2',
+    imgUrl: 'https://image.shutterstock.com/z/' +
+    'stock-vector-double-hung-window-vector-isolated-traditional-english-or-american-lifting-slider-window-398326996.jpg'
   }
 ];
