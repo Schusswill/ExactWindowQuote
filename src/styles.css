@@ -32,8 +32,12 @@ a:hover {
 app-top-bar {
   width: 100%;
   height: 60px;
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  transition: top .3s;
   color: #ffffff;
-  background-color: #444544;
+  background-color: #194ad2;
   padding: 16px;
   display: flex;
   flex-direction: row;
@@ -41,17 +45,18 @@ app-top-bar {
   align-items: center;
 }
 
-app-homepage{
-  width: 100%;
-  height: 100%;
-  background-color: antiquewhite;
-}
-
 window-form{
   width: 100%;
   height: auto;
   column-count: 3;
 }
+
+
+app-top-bar h1 {
+  color: #ffffff;
+  margin:0;
+}
+
 
 /*buttons*/
 
@@ -71,7 +76,22 @@ window-form{
   font-weight: normal;
 }
 
-app-top-bar h1 {
-  color: #ffffff;
-  margin:0;
+.parallax{
+  min-height: 400px;
+
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
 }
+
+@media screen and (max-width: 600px){
+  .parallax{
+    min-height: 100px;
+  }
+}
+
