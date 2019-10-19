@@ -1,24 +1,26 @@
-<div id="addWindow">
-  <div *ngFor='let window of windows'>
-    {{ window.type }}
-    {{ window.hight }}
-    {{ window.width }}
-  </div>
-  <a routerLink="/window-form" class="button">add a window</a>
-
-  <!--takeing this out for now probobly going to add a screen after the submit to put all this info in-->
-  <!-- <div>
-      <form [formGroup]="quoteForm" (ngSubmit)="submit()">
-        <div class="form-group">
-          <label class="center-block">Email:
-            <input class="form-control" formControlName="email">
-          </label>
-          <label class="center-block">Zipcode:
-            <input class="form-control" formControlName="zipcode">
-          </label>
-        </div>
-        <button class="button" type="submit">submit to get a quote</button>
-      </form>
-    </div> -->
-</div>
-
+<mat-horizontal-stepper #stepper linear='true'>
+  <mat-step label="Basic Info" required>
+    <form [formGroup]="basicInfoForm" ng-submit="infoSubmit(basicInfoForm.value, stepper)">
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="name" type="text" id="name" formControlName="name" required>
+          <mat-error *ngIf="basicInfoForm.get('name').invalid">{{getNameError()}}</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="email" type="text" id="email" formControlName="email" required>
+          <mat-error *ngIf="basicInfoForm.get('email').invalid">{{getEmailError()}}</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput #input maxlength="5" minLength="5" placeholder="zipcode" type="number" id="zipcode" formControlName="zipcode" required>
+          <mat-error *ngIf="basicInfoForm.get('zipcode').invalid">{{getZipError()}}</mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+    <button mat-button (click)="infoSubmit(basicInfoForm.value, stepper)">Next</button>
+  </mat-step>
+  <mat-step label="window Select">
+    test content 2
+  </mat-step>
+</mat-horizontal-stepper>

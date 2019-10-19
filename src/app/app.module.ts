@@ -2,12 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { QuoteBuilderComponent } from './quote-builder/quote-builder.component';
-import { WindowFormComponent } from './window-form/window-form.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
    declarations: [
@@ -15,12 +21,16 @@ import { WindowFormComponent } from './window-form/window-form.component';
       TopBarComponent,
       HomepageComponent,
       QuoteBuilderComponent,
-      WindowFormComponent
    ],
    imports: [
       BrowserModule,
       ReactiveFormsModule,
-      AppRoutingModule
+      AppRoutingModule,
+      BrowserAnimationsModule,
+      MatSliderModule,
+      MatStepperModule,
+      MatInputModule,
+      MatButtonModule
    ],
    providers: [],
    bootstrap: [

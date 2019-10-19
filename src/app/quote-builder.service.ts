@@ -5,18 +5,31 @@ import { Injectable } from '@angular/core';
 })
 export class QuoteBuilderService {
 
-constructor() { }
-  static windows = [];
-  static addWindowToQuote(product: Window) {
-    this.windows.push(product);
+  name: string;
+  email: string;
+  zipcode: number;
+
+  getName(): any {
+    return this.name;
   }
 
-  static getWindows() {
-    return this.windows;
+  getEmail() {
+    return this.email;
   }
 
-  static clearQuote() {
-    this.windows = [];
-    return this.windows;
+  getZipcode() {
+    return this.zipcode;
   }
+
+  addBasicInfo(name: string, email: string, zipcode: number) {
+    this.name = name;
+    this.email = email;
+    this.zipcode = zipcode;
+  }
+
+constructor() {
+  this.name = '';
+  this.email = '';
+}
+
 }
