@@ -14,6 +14,9 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
    declarations: [
@@ -30,7 +33,10 @@ import { MatButtonModule } from '@angular/material/button';
       MatSliderModule,
       MatStepperModule,
       MatInputModule,
-      MatButtonModule
+      MatButtonModule,
+      MatCheckboxModule,
+      MatGridListModule,
+      MatCardModule
    ],
    providers: [],
    bootstrap: [

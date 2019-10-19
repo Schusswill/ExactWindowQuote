@@ -21,3 +21,16 @@ export const validZip: number[] = [
   56301, 56304, 56387, 56397, 56398, 56388, 56302, 56372, 56393,
   56395, 56396, 56399, 56303, 56377, 56379
 ];
+
+
+export const windowTypes = [
+  {
+    title: 'Bay Window',
+    image: 'https://media.istockphoto.com/photos/bay-window-with-summer-view-picture-id475079450'
+  },
+  {
+    title: 'Double Hung',
+    image: 'https://media.istockphoto.com/photos/tiltin-replacement-window-picture-id177000527'
+  }
+];
+

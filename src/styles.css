@@ -47,8 +47,14 @@ app-top-bar {
 
 window-form{
   width: 100%;
+  /* min-height: 100vh; */
   height: auto;
-  column-count: 3;
+}
+
+quote-builder{
+  width: auto;
+  height: auto;
+  flex-wrap: wrap;
 }
 
 
@@ -91,7 +97,7 @@ app-top-bar h1 {
 
 @media screen and (max-width: 600px){
   .parallax{
-    min-height: 100px;
+    min-height: 200px;
   }
 }
 

@@ -13,6 +13,7 @@ import { validZip } from '../constants';
 export class QuoteBuilderComponent implements OnInit {
   basicInfoForm: FormGroup;
   secondFormGroup: FormGroup;
+  windowSelectorForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,14 +41,6 @@ export class QuoteBuilderComponent implements OnInit {
     '';
   }
 
-  setInfoForm() {
-    this.basicInfoForm = this.formBuilder.group ({
-      name: new FormControl(this.quoteBuilder.getName(), [Validators.required]),
-      email: new FormControl(this.quoteBuilder.getEmail(), [Validators.required, Validators.email]),
-      zipcode: new FormControl(this.quoteBuilder.getZipcode(), [Validators.required, Validators.minLength(5), this.zipcodeValidator])
-    });
-  }
-
   zipcodeValidator(control: FormControl) {
     const zipcode = control.value;
     if (!validZip.includes(zipcode)) {
@@ -56,7 +49,23 @@ export class QuoteBuilderComponent implements OnInit {
     return null;
   }
 
+  /**
+   * form setters
+   */
 
+  setInfoForm() {
+    this.basicInfoForm = this.formBuilder.group ({
+      name: new FormControl(this.quoteBuilder.getName(), [Validators.required]),
+      email: new FormControl(this.quoteBuilder.getEmail(), [Validators.required, Validators.email]),
+      zipcode: new FormControl(this.quoteBuilder.getZipcode(), [Validators.required, Validators.minLength(5), this.zipcodeValidator])
+    });
+  }
+
+  setWindowSelectorForm() {
+    this.windowSelectorForm = this.formBuilder.group ({
+      bayWindow: new FormControl('')
+    });
+  }
 
   /**
    * Form submission functions

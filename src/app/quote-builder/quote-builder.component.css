@@ -1,3 +1,4 @@
+
 #quoteForm {
   background-color: #ffffff;
 }
@@ -10,3 +11,21 @@ input[type="number"]::-webkit-outer-spin-button, input[typue="number"]::-webkit-
 input[type="number"]{
   -moz-appearance: textfield;
 }
+
+.quoteStepper {
+  width: 100%;
+}
+
+
+.windowSelect {
+  width: 100%;
+  height: auto;
+  columns: 6;
+}
+
+@media screen and (max-width: 600px){
+  .windowSelect{
+    columns: 2;
+  }
+}
+
