@@ -28,15 +28,22 @@
     <div class="windowSelect">
 
       <!--TODO Make Dinamic-->
-    <mat-card class="windowTypeCard">
-        <mat-card-title>Bay Window</mat-card-title>
-        <img mat-card-image src="https://media.istockphoto.com/photos/bay-window-with-summer-view-picture-id475079450">
-        <input matInput placeholder="number of windows" type="number">
-    </mat-card>
+    <div *ngFor="let windowStyle of windowForms.controls; let i=index">
+      <form [formGroup]="windowStyle">
+      <mat-card class="windowTypeCard" (click)='test(windowStyle.value)'>
+          <mat-card-title>{{windowTypes[i].title}}</mat-card-title>
+          <img mat-card-image [src]="windowTypes[i].image" (click)="toggleActive(windowStyle)">
+          <!-- <input formControlName="active" type="checkbox" hidden="true" id="activeCheckbox"> -->
+          <input [hidden]="!(windowStyle.value.active)" matInput placeholder="number of windows" type="number" formControlName="amount">
+      </mat-card>
+      </form>
+    </div>
 
     </div>
+    <button matStepperPrevious>Back</button>
+    <button matStepperNext>Next</button>
   </mat-step>
   <mat-step label="step 3">
-
+    <button mat-button (click)="finalSubmit()">submit</button>
   </mat-step>
 </mat-horizontal-stepper>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { QuoteBuilderService } from '../quote-builder.service';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { validZip } from '../constants';
+import { FormGroup, FormControl, Validators, FormBuilder, FormArray } from '@angular/forms';
+import { validZip, windowTypes } from '../constants';
 
 @Component({
   selector: 'app-quote-builder',
@@ -14,12 +14,15 @@ export class QuoteBuilderComponent implements OnInit {
   basicInfoForm: FormGroup;
   secondFormGroup: FormGroup;
   windowSelectorForm: FormGroup;
+  windowTypes = windowTypes;
+  windowForms: FormArray;
 
   constructor(
     private formBuilder: FormBuilder,
     private quoteBuilder: QuoteBuilderService
     ) {
       this.setInfoForm();
+      this.buildWindowForms();
   }
 
   /**
@@ -61,12 +64,6 @@ export class QuoteBuilderComponent implements OnInit {
     });
   }
 
-  setWindowSelectorForm() {
-    this.windowSelectorForm = this.formBuilder.group ({
-      bayWindow: new FormControl('')
-    });
-  }
-
   /**
    * Form submission functions
    */
@@ -84,8 +81,36 @@ export class QuoteBuilderComponent implements OnInit {
     // console.log(validZip.includes(customerData.zipcode));
   }
 
+  finalSubmit() {
+    this.test('lol');
+  }
+
+  buildWindowForms() {
+    this.windowForms = this.formBuilder.array([this.createItem()]);
+    for (let i = 1; i < windowTypes.length; i++) {
+      this.windowForms.push(this.createItem());
+    }
+  }
+
+  createItem(): FormGroup {
+    return this.formBuilder.group({
+      active: false,
+      amount: null
+    });
+  }
+
+  toggleActive(c: FormGroup) {
+    // this.test(c.controls);
+    c.controls.active.setValue(!c.value.active);
+  }
+
+  test(e: any) {
+    console.log(e);
+  }
+
   ngOnInit() {
     this.setInfoForm();
+    this.buildWindowForms();
   }
 
 

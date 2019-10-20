@@ -25,12 +25,14 @@ export const validZip: number[] = [
 
 export const windowTypes = [
   {
+    id: 0,
     title: 'Bay Window',
     image: 'https://media.istockphoto.com/photos/bay-window-with-summer-view-picture-id475079450'
   },
   {
+    id: 1,
     title: 'Double Hung',
     image: 'https://media.istockphoto.com/photos/tiltin-replacement-window-picture-id177000527'
-  }
+  },
 ];
 
