@@ -40,6 +40,7 @@ export class QuoteBuilderComponent implements OnInit {
 
   getZipError() {
     return this.basicInfoForm.get('zipcode').hasError('required') ? 'you must ender a Zipcode' :
+    this.basicInfoForm.get('zipcode').hasError('minlength') ? 'must enter valid zipcode' :
     this.basicInfoForm.get('zipcode').hasError('serviceArea') ? 'Zipcode is outside service area.' :
     '';
   }
@@ -50,6 +51,10 @@ export class QuoteBuilderComponent implements OnInit {
       return {serviceArea: true};
     }
     return null;
+  }
+
+  windowFormValidator(control: FormControl) {
+    // const
   }
 
   /**
@@ -71,8 +76,11 @@ export class QuoteBuilderComponent implements OnInit {
   infoSubmit(customerData: any, stepper: { next: () => void; }) {
     this.quoteBuilder.addBasicInfo(customerData.name, customerData.email, customerData.zipcode);
     if (!this.basicInfoForm.valid) {
-      console.log(this.basicInfoForm.valid);
-      alert('some of the feilds were not filled in corectly');
+      let builtAlert = '';
+      builtAlert += this.getZipError() + '\n';
+      builtAlert += this.getEmailError() + '\n';
+      builtAlert += this.getNameError();
+      alert(builtAlert);
     } else {
       stepper.next();
     }
@@ -102,6 +110,10 @@ export class QuoteBuilderComponent implements OnInit {
   toggleActive(c: FormGroup) {
     // this.test(c.controls);
     c.controls.active.setValue(!c.value.active);
+  }
+
+  uploadFile() {
+
   }
 
   test(e: any) {

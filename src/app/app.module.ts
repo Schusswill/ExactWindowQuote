@@ -36,7 +36,7 @@ import { MatCardModule } from '@angular/material/card';
       MatButtonModule,
       MatCheckboxModule,
       MatGridListModule,
-      MatCardModule
+      MatCardModule,
    ],
    providers: [],
    bootstrap: [

@@ -1,6 +1,7 @@
-<mat-horizontal-stepper #stepper linear='true' class="quoteStepper">
+<mat-vertical-stepper #stepper linear='true' class="quoteStepper" labelPosition="bottom">
 
-  <mat-step label="Basic Info" required>
+  <mat-step label="Basic Info" required [stepControl]="basicInfoForm">
+    <mat-card>
     <form [formGroup]="basicInfoForm" ng-submit="infoSubmit(basicInfoForm.value, stepper)">
       <div class="form-group">
         <mat-form-field>
@@ -19,31 +20,80 @@
         </mat-form-field>
       </div>
     </form>
-    <button mat-button (click)="infoSubmit(basicInfoForm.value, stepper)">Next</button>
+    </mat-card>
+    <button mat-raised-button (click)="infoSubmit(basicInfoForm.value, stepper)">Next</button>
   </mat-step>
 
 
   <mat-step label="windowSelect">
     <h3>Select your windows</h3>
+    <mat-card>
     <div class="windowSelect">
-
-      <!--TODO Make Dinamic-->
     <div *ngFor="let windowStyle of windowForms.controls; let i=index">
       <form [formGroup]="windowStyle">
-      <mat-card class="windowTypeCard" (click)='test(windowStyle.value)'>
+      <mat-card class="windowTypeCard" (click)='test(windowStyle.value)' role="form" [style.background-color]="windowStyle.value.active ? '#194ad24f' : 'white'">
           <mat-card-title>{{windowTypes[i].title}}</mat-card-title>
-          <img mat-card-image [src]="windowTypes[i].image" (click)="toggleActive(windowStyle)">
-          <!-- <input formControlName="active" type="checkbox" hidden="true" id="activeCheckbox"> -->
+          <img mat-card-image [src]="windowTypes[i].image" [alt]="'Picture of a' + windowTypes[i].title" (click)="toggleActive(windowStyle)">
           <input [hidden]="!(windowStyle.value.active)" matInput placeholder="number of windows" type="number" formControlName="amount">
       </mat-card>
       </form>
     </div>
-
+    <mat-card>
+      <mat-card-title>Sliding glass door</mat-card-title>
+      <img mat-card-image src="" alt="Picture of a Sliding glass door">
+    </mat-card>
     </div>
-    <button matStepperPrevious>Back</button>
-    <button matStepperNext>Next</button>
+    </mat-card>
+    <button mat-raised-button matStepperPrevious>Back</button>
+    <button mat-raised-button matStepperNext>Next</button>
   </mat-step>
-  <mat-step label="step 3">
-    <button mat-button (click)="finalSubmit()">submit</button>
+
+
+  <mat-step label="Style select">
+    <div class="windowSelect">
+      <mat-card>
+      <mat-card>
+        <mat-card-title>Trim</mat-card-title>
+        <img mat-card-image src="" alt="Picture of interior wood trim">
+        <mat-checkbox>Replace interior trim?</mat-checkbox>
+        <img mat-card-image src="" alt="Picture of exterior Aluminum trim">
+        <mat-checkbox>Exterior Aluminum Trim(Capping)</mat-checkbox>
+      </mat-card>
+      <mat-card>
+        <mat-grid-tile>Grids</mat-grid-tile>
+        <img mat-card-image src="" alt="Picture of window gridding patterns">
+        <mat-checkbox>Grids</mat-checkbox>
+      </mat-card>
+      </mat-card>
+    </div>
+    <button mat-raised-button matStepperPrevious>Back</button>
+    <button mat-raised-button matStepperNext>Next</button>
   </mat-step>
-</mat-horizontal-stepper>
+
+  <mat-step label="Additional information">
+    <div>
+      <mat-card>
+        <mat-card-title>Comments</mat-card-title>
+        <mat-form-field class='commentArea'>
+          <textarea matInput placeholder="Additional notes"></textarea>
+        </mat-form-field>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>Upload photos</mat-card-title>
+        <mat-card-content>
+          <p>*Photos are required for acurate quote</p>
+        <h3>Front</h3>
+        <input type="file" name="frontImage" accept="image/*">
+        <h3>Side 1</h3>
+        <input type="file" name="Side1Image" accept="image/*" (change)="uploadFile()">
+        <h3>Side 2</h3>
+        <input type="file" (change)="uploadFile()">
+        <h3>Back</h3>
+        <input type="file" (change)="uploadFile()">
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <button mat-raised-button matStepperPrevious>Back</button>
+    <button mat-raised-button mat-button (click)="finalSubmit()">submit</button>
+  </mat-step>
+</mat-vertical-stepper>

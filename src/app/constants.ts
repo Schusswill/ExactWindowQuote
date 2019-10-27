@@ -31,7 +31,7 @@ export const windowTypes = [
   },
   {
     id: 1,
-    title: 'Double Hung',
+    title: 'Double Hung window',
     image: 'https://media.istockphoto.com/photos/tiltin-replacement-window-picture-id177000527'
   },
 ];
