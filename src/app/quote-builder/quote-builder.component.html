@@ -18,6 +18,11 @@
           <input matInput #input maxlength="5" minLength="5" placeholder="zipcode" type="number" id="zipcode" formControlName="zipcode" required>
           <mat-error *ngIf="basicInfoForm.get('zipcode').invalid">{{getZipError()}}</mat-error>
         </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput #input placeholder="year home was built" type="text" id="builtYear" formControlName="builtYear" required>
+          <mat-error *ngIf="basicInfoForm.get('builtYear').invalid">{{getBuiltError()}}</mat-error>
+        </mat-form-field>
       </div>
     </form>
     </mat-card>
@@ -25,50 +30,57 @@
   </mat-step>
 
 
-  <mat-step label="windowSelect">
+  <mat-step label="windowSelect" required [stepControl]="windowForms">
     <h3>Select your windows</h3>
     <mat-card>
     <div class="windowSelect">
     <div *ngFor="let windowStyle of windowForms.controls; let i=index">
       <form [formGroup]="windowStyle">
-      <mat-card class="windowTypeCard" (click)='test(windowStyle.value)' role="form" [style.background-color]="windowStyle.value.active ? '#194ad24f' : 'white'">
+      <mat-card class="windowTypeCard" role="form" [style.background-color]="windowStyle.value.active ? '#194ad24f' : 'white'">
           <mat-card-title>{{windowTypes[i].title}}</mat-card-title>
-          <img mat-card-image [src]="windowTypes[i].image" [alt]="'Picture of a' + windowTypes[i].title" (click)="toggleActive(windowStyle)">
-          <input [hidden]="!(windowStyle.value.active)" matInput placeholder="number of windows" type="number" formControlName="amount">
+          <img mat-card-image [src]="windowTypes[i].image" [alt]="'Picture of a ' + windowTypes[i].title" (click)="toggleActive(windowStyle)">
+          <input matInput [hidden]="!(windowStyle.value.active)"  placeholder="number of windows" type="number" formControlName="amount">
       </mat-card>
       </form>
-    </div>
-    <mat-card>
-      <mat-card-title>Sliding glass door</mat-card-title>
-      <img mat-card-image src="" alt="Picture of a Sliding glass door">
-    </mat-card>
-    </div>
-    </mat-card>
+      </div>
+      </div>
+      </mat-card>
     <button mat-raised-button matStepperPrevious>Back</button>
-    <button mat-raised-button matStepperNext>Next</button>
+    <button mat-raised-button (click)="windowSubmit(windowForms.controls, stepper)">Next</button>
   </mat-step>
 
 
   <mat-step label="Style select">
     <div class="windowSelect">
       <mat-card>
-      <mat-card>
         <mat-card-title>Trim</mat-card-title>
         <img mat-card-image src="" alt="Picture of interior wood trim">
         <mat-checkbox>Replace interior trim?</mat-checkbox>
+        <br>
         <img mat-card-image src="" alt="Picture of exterior Aluminum trim">
         <mat-checkbox>Exterior Aluminum Trim(Capping)</mat-checkbox>
       </mat-card>
       <mat-card>
-        <mat-grid-tile>Grids</mat-grid-tile>
+        <mat-card-title>Grids</mat-card-title>
         <img mat-card-image src="" alt="Picture of window gridding patterns">
         <mat-checkbox>Grids</mat-checkbox>
       </mat-card>
+      <mat-card>
+        <mat-card-title>Interior color</mat-card-title>
+        <img mat-card-image src="" alt="White color tile">
+        <mat-checkbox>White</mat-checkbox>
+        <br>
+        <img mat-card-image src="" alt="almond color tile">
+        <mat-checkbox>Almond</mat-checkbox>
+        <br>
+        <img mat-card-image src="" alt="woodgrain tile">
+        <mat-checkbox>Woodgrain</mat-checkbox>
       </mat-card>
     </div>
     <button mat-raised-button matStepperPrevious>Back</button>
     <button mat-raised-button matStepperNext>Next</button>
   </mat-step>
+
 
   <mat-step label="Additional information">
     <div>

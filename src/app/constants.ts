@@ -34,5 +34,35 @@ export const windowTypes = [
     title: 'Double Hung window',
     image: 'https://media.istockphoto.com/photos/tiltin-replacement-window-picture-id177000527'
   },
+  {
+    id: 2,
+    title: 'Slider',
+    image: ''
+  },
+  {
+    id: 3,
+    title: 'lite Slider',
+    image: ''
+  },
+  {
+    id: 4,
+    title: 'Single Casement',
+    image: ''
+  },
+  {
+    id: 5,
+    title: 'Double Casement',
+    image: ''
+  },
+  {
+    id: 6,
+    title: 'Triple Casement(1/4-1/2-1/4)',
+    image: ''
+  },
+  {
+    id: 7,
+    title: 'Triple Casement(1/3-1/3-1/3)',
+    image: ''
+  }
 ];
 

@@ -41,15 +41,26 @@ mat-card img{
   height: 80%;
 }
 
-@media screen and (max-width: 830px){
+@media screen and (max-width: 1300px){
   .windowSelect{
     columns: 4;
+  }
+}
+@media screen and (max-width: 1100px){
+  .windowSelect{
+    columns: 3;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .windowSelect{
+    columns: 2;
   }
 }
 
 @media screen and (max-width: 600px){
   .windowSelect{
-    columns: 2;
+    columns: 1;
   }
 }
 
