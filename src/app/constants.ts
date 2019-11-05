@@ -26,7 +26,7 @@ export const validZip: number[] = [
 export const windowTypes = [
   {
     id: 0,
-    title: 'Bay Window',
+    title: 'Bow window',
     image: 'https://media.istockphoto.com/photos/bay-window-with-summer-view-picture-id475079450'
   },
   {
@@ -62,6 +62,36 @@ export const windowTypes = [
   {
     id: 7,
     title: 'Triple Casement(1/3-1/3-1/3)',
+    image: ''
+  },
+  {
+    id: 8,
+    title: 'Picture/Fixed',
+    image: ''
+  },
+  {
+    id: 9,
+    title: 'Awning',
+    image: ''
+  },
+  {
+    id: 10,
+    title: 'Bay Window(double hung)',
+    image: 'https://media.istockphoto.com/photos/bay-window-with-summer-view-picture-id475079450'
+  },
+  {
+    id: 11,
+    title: 'Bay window(cranck out)',
+    image: ''
+  },
+  {
+    id: 12,
+    title: 'garden window',
+    image: ''
+  },
+  {
+    id: 13,
+    title: 'Patio Door',
     image: ''
   }
 ];

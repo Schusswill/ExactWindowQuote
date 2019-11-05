@@ -18,6 +18,9 @@ input[type="number"]{
   /* labelPosition: bottom; */
 }
 
+/* ::ng-deep .mat-vertical-stepper-header {
+  pointer-events: none !important;
+} */
 
 .windowSelect {
   width: 100%;

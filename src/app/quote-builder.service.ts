@@ -10,7 +10,13 @@ export class QuoteBuilderService {
   email: string;
   zipcode: number;
   builtYear: string;
-  activeStyles = [];
+  activeWindows = [];
+  style = {
+    woodTrim: false,
+    capping: false,
+    grids: false,
+    interiorColor: ''
+  };
 
   getName(): any {
     return this.name;
@@ -28,12 +34,16 @@ export class QuoteBuilderService {
     return this.builtYear;
   }
 
-  getActiveStyles() {
-    return this.activeStyles;
+  getActiveWindows() {
+    return this.activeWindows;
   }
 
-  addStyle(title: string, amount: number, id: number) {
-    this.activeStyles.push({id, title, amount});
+  getStyle() {
+    return this.style;
+  }
+
+  addWindow(title: string, amount: number, id: number) {
+    this.activeWindows.push({id, title, amount});
   }
 
   addBasicInfo(name: string, email: string, zipcode: number, builtYear: string) {
@@ -43,8 +53,26 @@ export class QuoteBuilderService {
     this.builtYear = builtYear;
   }
 
-  clearStyles() {
-    this.activeStyles = [];
+  setStyle(woodTrim: boolean, capping: boolean, grids: boolean, interiorColor: string) {
+    this.style = {
+      woodTrim,
+      capping,
+      grids,
+      interiorColor
+    };
+  }
+
+  clearWindows() {
+    this.activeWindows = [];
+  }
+
+  print() {
+    return {
+      name: this.name,
+      email: this.email,
+      windows: this.activeWindows,
+      style: this.style
+    };
   }
 
 constructor() {

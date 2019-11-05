@@ -17,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
    declarations: [
@@ -37,6 +38,7 @@ import { MatCardModule } from '@angular/material/card';
       MatCheckboxModule,
       MatGridListModule,
       MatCardModule,
+      MatRadioModule
    ],
    providers: [],
    bootstrap: [

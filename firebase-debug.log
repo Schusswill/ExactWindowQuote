@@ -1,0 +1,355 @@
+[debug] [2019-11-05T17:04:44.891Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T17:04:44.894Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-11-05T17:04:44.894Z] CLI Version:   7.6.2
+[debug] [2019-11-05T17:04:44.894Z] Platform:      win32
+[debug] [2019-11-05T17:04:44.894Z] Node Version:  v10.16.3
+[debug] [2019-11-05T17:04:44.895Z] Time:          Tue Nov 05 2019 11:04:44 GMT-0600 (Central Standard Time)
+[debug] [2019-11-05T17:04:44.895Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T17:04:44.895Z] 
+[debug] [2019-11-05T17:04:44.907Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-05T17:04:44.907Z] > authorizing via signed-in user
+[debug] [2019-11-05T17:04:44.907Z] [iam] checking project freewindowquote for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-11-05T17:04:44.909Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/freewindowquote:testIamPermissions  
+
+[debug] [2019-11-05T17:04:45.490Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-05T17:04:45.493Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/freewindowquote  
+ 
+[debug] [2019-11-05T17:04:45.762Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'freewindowquote'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-11-05T17:04:45.767Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/freewindowquote/versions  
+
+[debug] [2019-11-05T17:04:47.562Z] <<< HTTP RESPONSE 200
+[info] i  hosting[freewindowquote]: beginning deploy...
+[info] i  hosting[freewindowquote]: found 10 files in dist/my-app
+[debug] [2019-11-05T17:04:47.586Z] [hosting] hash cache [ZGlzdFxteS1hcHA] not populated
+[debug] [2019-11-05T17:04:47.654Z] [hosting] hash cache [ZGlzdFxteS1hcHA] stored for 10 files
+[debug] [2019-11-05T17:04:47.655Z] [hosting][hash queue][FINAL]
+[debug] [2019-11-05T17:04:47.655Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/freewindowquote/versions/7cff59bfeb8ad69d:populateFiles  
+ <request body omitted>
+[debug] [2019-11-05T17:04:48.321Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-05T17:04:48.328Z] [hosting][populate queue][FINAL]
+[debug] [2019-11-05T17:04:48.328Z] [hosting] uploads queued: 9
+[debug] [2019-11-05T17:04:51.026Z] [hosting][upload queue][FINAL]
+[info] +  hosting[freewindowquote]: file upload complete
+[debug] [2019-11-05T17:04:51.027Z] [hosting] deploy completed after 3465ms
+[debug] [2019-11-05T17:04:51.223Z] [
+  {
+    "config": {
+      "target": "my-app",
+      "public": "dist/my-app",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    "site": "freewindowquote",
+    "version": "sites/freewindowquote/versions/7cff59bfeb8ad69d"
+  }
+]
+[info] i  hosting[freewindowquote]: finalizing version...
+[debug] [2019-11-05T17:04:51.224Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/freewindowquote/versions/7cff59bfeb8ad69d?updateMask=status  
+
+[debug] [2019-11-05T17:04:51.522Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-05T17:04:51.523Z] [hosting] finalized version for freewindowquote:
+[info] +  hosting[freewindowquote]: version finalized
+[info] i  hosting[freewindowquote]: releasing new version...
+[debug] [2019-11-05T17:04:51.524Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/freewindowquote/releases?version_name=sites/freewindowquote/versions/7cff59bfeb8ad69d  
+
+[debug] [2019-11-05T17:05:29.961Z] Error: read ECONNRESET
+    at TLSWrap.onStreamRead (internal/stream_base_commons.js:111:27)
+[error] 
+[error] Error: Server Error. read ECONNRESET
+[debug] [2019-11-05T17:05:41.106Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T17:05:41.109Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-11-05T17:05:41.109Z] CLI Version:   7.6.2
+[debug] [2019-11-05T17:05:41.109Z] Platform:      win32
+[debug] [2019-11-05T17:05:41.109Z] Node Version:  v10.16.3
+[debug] [2019-11-05T17:05:41.111Z] Time:          Tue Nov 05 2019 11:05:41 GMT-0600 (Central Standard Time)
+[debug] [2019-11-05T17:05:41.111Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T17:05:41.111Z] 
+[debug] [2019-11-05T17:05:41.122Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-05T17:05:41.123Z] > authorizing via signed-in user
+[debug] [2019-11-05T17:05:41.124Z] [iam] checking project freewindowquote for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-11-05T17:05:41.125Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/freewindowquote:testIamPermissions  
+
+[debug] [2019-11-05T17:05:41.366Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-05T17:05:41.368Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/freewindowquote  
+ 
+[debug] [2019-11-05T17:05:41.575Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'freewindowquote'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-11-05T17:05:41.581Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/freewindowquote/versions  
+
+[debug] [2019-11-05T17:05:42.536Z] <<< HTTP RESPONSE 200
+[info] i  hosting[freewindowquote]: beginning deploy...
+[info] i  hosting[freewindowquote]: found 10 files in dist/my-app
+[debug] [2019-11-05T17:05:42.560Z] [hosting] hash cache [ZGlzdFxteS1hcHA] stored for 10 files
+[debug] [2019-11-05T17:05:42.560Z] [hosting][hash queue][FINAL]
+[debug] [2019-11-05T17:05:42.560Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/freewindowquote/versions/912e6dfba07ffeec:populateFiles  
+ <request body omitted>
+[debug] [2019-11-05T17:05:43.385Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-05T17:05:43.385Z] [hosting][populate queue][FINAL]
+[debug] [2019-11-05T17:05:43.385Z] [hosting] uploads queued: 0
+[debug] [2019-11-05T17:05:43.385Z] [hosting][upload queue][FINAL]
+[info] +  hosting[freewindowquote]: file upload complete
+[debug] [2019-11-05T17:05:43.387Z] [hosting] deploy completed after 849ms
+[debug] [2019-11-05T17:05:43.540Z] [
+  {
+    "config": {
+      "target": "my-app",
+      "public": "dist/my-app",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    "site": "freewindowquote",
+    "version": "sites/freewindowquote/versions/912e6dfba07ffeec"
+  }
+]
+[info] i  hosting[freewindowquote]: finalizing version...
+[debug] [2019-11-05T17:05:43.541Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/freewindowquote/versions/912e6dfba07ffeec?updateMask=status  
+
+[debug] [2019-11-05T17:06:21.971Z] Error: read ECONNRESET
+    at TLSWrap.onStreamRead (internal/stream_base_commons.js:111:27)
+[error] 
+[error] Error: Server Error. read ECONNRESET
+[debug] [2019-11-05T17:09:07.217Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T17:09:07.221Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2019-11-05T17:09:07.221Z] CLI Version:   7.6.2
+[debug] [2019-11-05T17:09:07.221Z] Platform:      win32
+[debug] [2019-11-05T17:09:07.221Z] Node Version:  v10.16.3
+[debug] [2019-11-05T17:09:07.223Z] Time:          Tue Nov 05 2019 11:09:07 GMT-0600 (Central Standard Time)
+[debug] [2019-11-05T17:09:07.223Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T17:09:07.223Z] 
+[debug] [2019-11-05T17:09:07.232Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-05T17:09:07.233Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Web Dev\my-app
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[debug] [2019-11-05T17:09:28.855Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T17:09:28.858Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2019-11-05T17:09:28.858Z] CLI Version:   7.6.2
+[debug] [2019-11-05T17:09:28.858Z] Platform:      win32
+[debug] [2019-11-05T17:09:28.858Z] Node Version:  v10.16.3
+[debug] [2019-11-05T17:09:28.860Z] Time:          Tue Nov 05 2019 11:09:28 GMT-0600 (Central Standard Time)
+[debug] [2019-11-05T17:09:28.860Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T17:09:28.860Z] 
+[debug] [2019-11-05T17:09:28.870Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-05T17:09:28.871Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Web Dev\my-app
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2019-11-05T17:09:38.186Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/freewindowquote  
+ 
+[debug] [2019-11-05T17:09:59.879Z] Server Error. read ECONNRESET
+[debug] [2019-11-05T17:10:00.091Z] FirebaseError: Server Error. read ECONNRESET
+    at Request._callback (C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\lib\api.js:30:31)
+    at self.callback (C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at Request.emit (events.js:198:13)
+    at Request.EventEmitter.emit (domain.js:448:20)
+    at Request.onRequestError (C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:881:8)
+    at ClientRequest.emit (events.js:203:15)
+    at ClientRequest.EventEmitter.emit (domain.js:448:20)
+    at TLSSocket.socketErrorListener (_http_client.js:392:9)
+    at TLSSocket.emit (events.js:198:13)
+    at TLSSocket.EventEmitter.emit (domain.js:448:20)
+[error] 
+[error] Error: Failed to get Firebase project freewindowquote. Please make sure the project exists and your account has permission to access it.
+[debug] [2019-11-05T17:12:30.132Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T17:12:30.135Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2019-11-05T17:12:30.136Z] CLI Version:   7.6.2
+[debug] [2019-11-05T17:12:30.136Z] Platform:      win32
+[debug] [2019-11-05T17:12:30.136Z] Node Version:  v10.16.3
+[debug] [2019-11-05T17:12:30.137Z] Time:          Tue Nov 05 2019 11:12:30 GMT-0600 (Central Standard Time)
+[debug] [2019-11-05T17:12:30.137Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T17:12:30.137Z] 
+[debug] [2019-11-05T17:12:30.148Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-05T17:12:30.149Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Web Dev\my-app
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2019-11-05T17:12:58.577Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/freewindowquote  
+ 
+[debug] [2019-11-05T17:13:20.345Z] Server Error. read ECONNRESET
+[debug] [2019-11-05T17:13:39.614Z] FirebaseError: Server Error. read ECONNRESET
+    at Request._callback (C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\lib\api.js:30:31)
+    at self.callback (C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at Request.emit (events.js:198:13)
+    at Request.EventEmitter.emit (domain.js:448:20)
+    at Request.onRequestError (C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:881:8)
+    at ClientRequest.emit (events.js:203:15)
+    at ClientRequest.EventEmitter.emit (domain.js:448:20)
+    at TLSSocket.socketErrorListener (_http_client.js:392:9)
+    at TLSSocket.emit (events.js:198:13)
+    at TLSSocket.EventEmitter.emit (domain.js:448:20)
+[error] 
+[error] Error: Failed to get Firebase project freewindowquote. Please make sure the project exists and your account has permission to access it.
+[debug] [2019-11-05T17:15:06.313Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T17:15:06.316Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2019-11-05T17:15:06.317Z] CLI Version:   7.6.2
+[debug] [2019-11-05T17:15:06.317Z] Platform:      win32
+[debug] [2019-11-05T17:15:06.317Z] Node Version:  v10.16.3
+[debug] [2019-11-05T17:15:06.319Z] Time:          Tue Nov 05 2019 11:15:06 GMT-0600 (Central Standard Time)
+[debug] [2019-11-05T17:15:06.319Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T17:15:06.319Z] 
+[debug] [2019-11-05T17:15:06.331Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-05T17:15:06.332Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Web Dev\my-app
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project.
+[debug] [2019-11-05T17:15:41.957Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects  
+
+[debug] [2019-11-05T17:15:42.248Z] <<< HTTP RESPONSE 400
+[debug] [2019-11-05T17:15:42.249Z] <<< HTTP RESPONSE BODY
+[debug] [2019-11-05T17:15:42.252Z] HTTP Error: 400, field [project_id] has issue [project_id contains invalid characters]
+[debug] [2019-11-05T17:16:01.592Z] FirebaseError: HTTP Error: 400, field [project_id] has issue [project_id contains invalid characters]
+    at module.exports (C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:38:12)
+    at Request._callback (C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\lib\api.js:39:35)
+    at Request.self.callback (C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at Request.emit (events.js:198:13)
+    at Request.EventEmitter.emit (domain.js:448:20)
+    at Request.<anonymous> (C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1161:10)
+    at Request.emit (events.js:198:13)
+    at Request.EventEmitter.emit (domain.js:448:20)
+    at IncomingMessage.<anonymous> (C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1083:12)
+    at Object.onceWrapper (events.js:286:20)
+[error] 
+[error] Error: Failed to create Google Cloud project. See firebase-debug.log for more info.
+[debug] [2019-11-05T17:17:48.439Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T17:17:48.443Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2019-11-05T17:17:48.443Z] CLI Version:   7.6.2
+[debug] [2019-11-05T17:17:48.443Z] Platform:      win32
+[debug] [2019-11-05T17:17:48.443Z] Node Version:  v10.16.3
+[debug] [2019-11-05T17:17:48.444Z] Time:          Tue Nov 05 2019 11:17:48 GMT-0600 (Central Standard Time)
+[debug] [2019-11-05T17:17:48.444Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T17:17:48.444Z] 
+[debug] [2019-11-05T17:17:48.456Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-05T17:17:48.457Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Web Dev\my-app
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2019-11-05T17:17:54.122Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/freewindowquote  
+ 
+[debug] [2019-11-05T17:18:13.419Z] Server Error. read ECONNRESET
+[debug] [2019-11-05T17:18:13.590Z] FirebaseError: Server Error. read ECONNRESET
+    at Request._callback (C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\lib\api.js:30:31)
+    at self.callback (C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at Request.emit (events.js:198:13)
+    at Request.EventEmitter.emit (domain.js:448:20)
+    at Request.onRequestError (C:\Users\willi\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:881:8)
+    at ClientRequest.emit (events.js:203:15)
+    at ClientRequest.EventEmitter.emit (domain.js:448:20)
+    at TLSSocket.socketErrorListener (_http_client.js:392:9)
+    at TLSSocket.emit (events.js:198:13)
+    at TLSSocket.EventEmitter.emit (domain.js:448:20)
+[error] 
+[error] Error: Failed to get Firebase project freewindowquote. Please make sure the project exists and your account has permission to access it.

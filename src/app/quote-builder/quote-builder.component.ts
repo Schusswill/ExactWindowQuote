@@ -12,17 +12,20 @@ import { validZip, windowTypes } from '../constants';
 
 export class QuoteBuilderComponent implements OnInit {
   basicInfoForm: FormGroup;
-  secondFormGroup: FormGroup;
   windowSelectorForm: FormGroup;
+  styleForm: FormGroup;
+  addInfoForm: FormGroup;
   windowTypes = windowTypes;
   windowForms: FormArray;
+  interiorColor: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private quoteBuilder: QuoteBuilderService
     ) {
-      this.setInfoForm();
-      this.buildWindowForms();
+      // this.setInfoForm();
+      // this.buildWindowForms();
+      // this.buildStyleForm();
   }
 
   /**
@@ -57,10 +60,6 @@ export class QuoteBuilderComponent implements OnInit {
     return null;
   }
 
-  windowFormValidator(control: FormControl) {
-    // const
-  }
-
   /**
    * form setters
    */
@@ -73,6 +72,51 @@ export class QuoteBuilderComponent implements OnInit {
       builtYear: new FormControl(this.quoteBuilder.getBuiltYear(), [Validators.required, Validators.minLength(4), Validators.maxLength(4)])
     });
   }
+
+
+  buildWindowForms() {
+    this.windowForms = this.formBuilder.array([this.createItem()]);
+    for (let i = 1; i < windowTypes.length; i++) {
+      this.windowForms.push(this.createItem());
+    }
+
+    const selectedStyles = this.quoteBuilder.getActiveWindows();
+    for (const style of selectedStyles) {
+
+      this.windowForms.controls[style.id] = this.formBuilder.group({
+        active: new FormControl(true, []),
+        amount: new FormControl(style.amount, [])
+      });
+    }
+  }
+
+  createItem(): FormGroup {
+    return this.formBuilder.group({
+      active: false,
+      amount: null
+    });
+  }
+
+  buildStyleForm() {
+    this.styleForm = this.formBuilder.group({
+      woodTrim: new FormControl(this.quoteBuilder.getStyle().woodTrim, []),
+      capping: new FormControl(this.quoteBuilder.getStyle().capping, []),
+      grids: new FormControl(this.quoteBuilder.getStyle().grids, []),
+      interiorColor: new FormControl(this.quoteBuilder.getStyle().interiorColor, Validators.required)
+    });
+  }
+
+  buildAddInfoForm() {
+    this.addInfoForm = this.formBuilder.group({
+      comment: new FormControl('', []),
+      FrontPicture: new FormControl('', []),
+      side1Picture: new FormControl('', []),
+      side2Picture: new FormControl('', []),
+      backPicture: new FormControl('', [])
+    });
+  }
+
+
 
   /**
    * Form submission functions
@@ -90,13 +134,10 @@ export class QuoteBuilderComponent implements OnInit {
     } else {
       stepper.next();
     }
-    // console.log(this.basicInfoForm.valid);
-    // console.log(typeof customerData.zipcode);
-    // console.log(validZip.includes(customerData.zipcode));
   }
 
   windowSubmit(windowForms: any, stepper: { next: () => void; }) {
-    this.quoteBuilder.clearStyles();
+    this.quoteBuilder.clearWindows();
     let control = true;
     let i = 0;
     for (const windowform of windowForms) {
@@ -104,12 +145,11 @@ export class QuoteBuilderComponent implements OnInit {
         if (windowform.value.amount <= 0) {
         control = false;
         } else {
-          this.quoteBuilder.addStyle(this.windowTypes[i].title, windowform.value.amount, i);
+          this.quoteBuilder.addWindow(this.windowTypes[i].title, windowform.value.amount, i);
         }
       }
       i++;
     }
-    console.log(this.quoteBuilder.getActiveStyles());
     if (control) {
       stepper.next();
     } else {
@@ -117,40 +157,35 @@ export class QuoteBuilderComponent implements OnInit {
     }
   }
 
-  finalSubmit() {
-    this.test('lol');
-  }
-
-  buildWindowForms() {
-    this.windowForms = this.formBuilder.array([this.createItem()]);
-    for (let i = 1; i < windowTypes.length; i++) {
-      this.windowForms.push(this.createItem());
+  styleSubmit(styleForm: any,  stepper: { next: () => void; }) {
+    const values = styleForm.value;
+    this.quoteBuilder.setStyle(values.woodTrim, values.capping, values.grids, values.interiorColor);
+    if (values.interiorColor === '') {
+      alert('must select interior Color');
+    } else {
+      stepper.next();
     }
   }
 
-  createItem(): FormGroup {
-    return this.formBuilder.group({
-      active: false,
-      amount: null
-    });
+  finalSubmit() {
+    this.sendEmail();
+  }
+
+  sendEmail() {
+    console.log('todo: ');
+    console.log(this.quoteBuilder.print());
   }
 
   toggleActive(c: FormGroup) {
-    // this.test(c.controls);
     c.controls.active.setValue(!c.value.active);
   }
 
-  uploadFile() {
-
-  }
-
-  test(e: any) {
-    console.log(e);
-  }
 
   ngOnInit() {
     this.setInfoForm();
     this.buildWindowForms();
+    this.buildStyleForm();
+    this.buildAddInfoForm();
   }
 
 

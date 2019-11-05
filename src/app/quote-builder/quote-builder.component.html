@@ -1,4 +1,4 @@
-<mat-vertical-stepper #stepper linear='true' class="quoteStepper" labelPosition="bottom">
+<mat-vertical-stepper #stepper linear='false' class="quoteStepper" labelPosition="bottom">
 
   <mat-step label="Basic Info" required [stepControl]="basicInfoForm">
     <mat-card>
@@ -20,7 +20,7 @@
         </mat-form-field>
         <br>
         <mat-form-field>
-          <input matInput #input placeholder="year home was built" type="text" id="builtYear" formControlName="builtYear" required>
+          <input matInput #input placeholder="year home was built" type="number" id="builtYear" formControlName="builtYear" required>
           <mat-error *ngIf="basicInfoForm.get('builtYear').invalid">{{getBuiltError()}}</mat-error>
         </mat-form-field>
       </div>
@@ -52,33 +52,37 @@
 
   <mat-step label="Style select">
     <div class="windowSelect">
+      <form [formGroup]="styleForm">
       <mat-card>
         <mat-card-title>Trim</mat-card-title>
         <img mat-card-image src="" alt="Picture of interior wood trim">
-        <mat-checkbox>Replace interior trim?</mat-checkbox>
+        <mat-checkbox formControlName="woodTrim">Replace interior trim?</mat-checkbox>
         <br>
         <img mat-card-image src="" alt="Picture of exterior Aluminum trim">
-        <mat-checkbox>Exterior Aluminum Trim(Capping)</mat-checkbox>
+        <mat-checkbox formControlName="capping">Exterior Aluminum Trim(Capping)</mat-checkbox>
       </mat-card>
       <mat-card>
         <mat-card-title>Grids</mat-card-title>
         <img mat-card-image src="" alt="Picture of window gridding patterns">
-        <mat-checkbox>Grids</mat-checkbox>
+        <mat-checkbox formControlName="grids">Grids</mat-checkbox>
       </mat-card>
       <mat-card>
-        <mat-card-title>Interior color</mat-card-title>
-        <img mat-card-image src="" alt="White color tile">
-        <mat-checkbox>White</mat-checkbox>
-        <br>
-        <img mat-card-image src="" alt="almond color tile">
-        <mat-checkbox>Almond</mat-checkbox>
-        <br>
-        <img mat-card-image src="" alt="woodgrain tile">
-        <mat-checkbox>Woodgrain</mat-checkbox>
+        <mat-card-title><label id="interiorColorLabel">Interior color</label></mat-card-title>
+        <mat-radio-group aria-labelledby="interiorColorLabel" formControlName="interiorColor">
+          <img mat-card-image src="" alt="White color tile">
+          <mat-radio-button value="white"> White</mat-radio-button>
+          <br>
+          <img mat-card-image src="" alt="almond color tile">
+          <mat-radio-button value="Almond">Almond</mat-radio-button>
+          <br>
+          <img mat-card-image src="" alt="woodgrain tile">
+          <mat-radio-button value="Woodgrain">Woodgrain</mat-radio-button>
+        </mat-radio-group>
       </mat-card>
+      </form>
     </div>
     <button mat-raised-button matStepperPrevious>Back</button>
-    <button mat-raised-button matStepperNext>Next</button>
+    <button mat-raised-button (click)="styleSubmit(styleForm, stepper)">Next</button>
   </mat-step>
 
 
@@ -95,17 +99,17 @@
         <mat-card-content>
           <p>*Photos are required for acurate quote</p>
         <h3>Front</h3>
-        <input type="file" name="frontImage" accept="image/*">
+        <input type="file" name="FrontImage" accept="image/*">
         <h3>Side 1</h3>
-        <input type="file" name="Side1Image" accept="image/*" (change)="uploadFile()">
+        <input type="file" name="Side1Image" accept="image/*">
         <h3>Side 2</h3>
-        <input type="file" (change)="uploadFile()">
+        <input type="file" name="Side2Image" accept="image/*">
         <h3>Back</h3>
-        <input type="file" (change)="uploadFile()">
+        <input type="file" name="Back" accept="image/*">
         </mat-card-content>
       </mat-card>
     </div>
     <button mat-raised-button matStepperPrevious>Back</button>
-    <button mat-raised-button mat-button (click)="finalSubmit()">submit</button>
+    <button mat-raised-button (click)="finalSubmit()">submit</button>
   </mat-step>
 </mat-vertical-stepper>
